@@ -1,0 +1,28 @@
+---
+const { headerTitle, headerSubtitle } = Astro.props;
+---
+<header class="section-header">
+<h4 class="sectionHeaderTitle">{headerTitle}</h4>
+<h3 class="sectionHeaderSubtitle">{headerSubtitle}</h3>
+</header>
+
+<style>
+
+    .section-header {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 7.2rem 0;
+    }
+
+.sectionHeaderTitle {
+    color: var(--accent);
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+.sectionHeaderSubtitle {
+    color: var(--white-text);
+    font-size: 4.1rem;
+    font-weight: 500;
+}
+</style>
