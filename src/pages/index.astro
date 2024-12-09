@@ -4,6 +4,8 @@ import Card from '../components/Card.astro';
 import Header from '../components/Header.astro';
 import Container from '../components/Container.astro'
 import Hero from '../components/Hero.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import ProjectCard from '../components/ProjectCard.astro';
 ---
 
 <Layout title="Milderz - Frontend Developer">
@@ -13,6 +15,16 @@ import Hero from '../components/Hero.astro';
 	</Container>
 	<Container backgroundColor="dark">
 		<Hero />
+	</Container>
+	<Container>
+		<SectionHeader headerTitle="PROJECTS" headerSubtitle="Take a look at my work!"/>
+	</Container>
+	<Container>
+		<section style={{display: 'flex'}}>
+			<ProjectCard />
+			<ProjectCard />
+			<ProjectCard />
+		</section>
 	</Container>
 	
 		<!-- https://res.cloudinary.com/dtu95r8h9/image/upload/e_grayscale/q_auto/milderz-avatar-nobg_p0isgp -->
