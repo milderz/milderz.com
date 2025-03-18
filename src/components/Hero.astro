@@ -8,13 +8,14 @@ import Button from "./Button.astro";
 <div class="hero">
  <div class="hero-col1">
     <h2 class="hero-title">Frontend <span>Developer.</span></h2>
-    <p class="hero-text">Developing modern websites that help businesses to grow.</p>
+    <p class="hero-text">Developing modern websites that help businesses to grow 🚀</p>
     <div class="hero-col1-btns">
         <Button btnText="Let's talk!"/>
         <Button btnText="Download resume"/>
     </div>
  </div>
  <div class="hero-col2">
+  
     <img height="459px" class="hero-avatar" src="/milderz-avatar-nobg.png" alt="" srcset="">
  </div>
 </div>
@@ -48,6 +49,7 @@ import Button from "./Button.astro";
         font-size: 2rem;
         color: var(--white-text);
         font-weight: 500;
+        max-width: 35ch;
     }
     .hero-col1-btns {
         display: flex;
@@ -57,5 +59,11 @@ import Button from "./Button.astro";
     .hero-avatar {
         filter: grayscale();
         
+    }
+
+
+
+    .hero-col2 {
+        position: relative;
     }
 </style>
