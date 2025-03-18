@@ -73,4 +73,27 @@ const { title } = Astro.props;
 		text-decoration: none;
 		color: #1d1d1d;
 	}
+
+	/* Estilo general para el scrollbar */
+::-webkit-scrollbar {
+  width: 12px; /* Ancho del scrollbar */
+  height: 12px; /* Altura para scrollbars horizontales */
+}
+
+/* Color y estilo del track (fondo del scrollbar) */
+::-webkit-scrollbar-track {
+  background: var(--black-bg); /* Color del fondo */
+  border-radius: 10px; /* Opcional: bordes redondeados */
+}
+
+/* Color y estilo del thumb (la parte deslizante del scrollbar) */
+::-webkit-scrollbar-thumb {
+  background: var(--accent); /* Color del thumb */
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Cambiar el color del thumb al pasar el mouse */
+::-webkit-scrollbar-thumb:hover {
+  background: #000000; /* Color al hacer hover */
+}
 </style>

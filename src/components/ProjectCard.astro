@@ -2,7 +2,7 @@
 const { cardImage, cardTitle, cardDescription } = Astro.props;
 ---
 
-<article class="project-card">
+<a href="#" class="project-card">
     <img
         class="project-card-img"
         src="https://milderz.netlify.app/photo-snap.webp"
@@ -18,9 +18,18 @@ const { cardImage, cardTitle, cardDescription } = Astro.props;
             The all-in-one subscription starter kit for high-performance SaaS
             applications, powered by Stripe, Supabase, and Vercel.
         </p>
-        <a class="project-card-link" href="#">SEE PROJECT</a>
+        
+        
     </div>
-</article>
+    <footer class="project-card-footer">
+        <p class="project-card-link">SEE PROJECT<p/>
+    </footer>
+    <div class="project-card-tags">
+        <span class="project-card-tag">REACT JS</span>
+        <span class="project-card-tag">ASTRO</span>
+        <span class="project-card-tag">NEXT JS</span>
+    </div>
+</a>
 
 <style>
     .project-card {
@@ -31,11 +40,24 @@ const { cardImage, cardTitle, cardDescription } = Astro.props;
         border-radius: 0.5rem;
         display: flex;
         flex-direction: column;
+        position: relative;
+        color: var(--white-text);
+        transition: all 0.2s ease;
+        margin-right: 4rem;
+        background-color: var(--black-bg);
+        
+    }
+
+    .project-card:hover {
+        transform: scale(1.075);
+        border: 1px solid var(--accent);
     }
 
     .project-card-img {
         border-radius: 0.5rem;
         flex: 1;
+        filter: brightness(0.6);
+        transition: all 0.2s ease;
     }
 
     .project-card-content {
@@ -52,12 +74,44 @@ const { cardImage, cardTitle, cardDescription } = Astro.props;
     .project-card-description {
         font-size: 1.4rem;
         font-weight: 400;
+        
+    }
+    .project-card-footer {
+        flex: 1;
+        display: flex;
+        align-items: end;
     }
 
     .project-card-link {
         color: var(--accent);
         font-size: 1.4rem;
         font-weight: 700;
-        margin-left: auto;
+        
+    }
+    .project-card-tags {
+        position: absolute;
+        top: 3rem;
+        left: 3rem;
+        
+        opacity: 0;
+        transition: all 0.2s ease;
+    }
+    .project-card:hover .project-card-tags {
+        opacity: 1;
+        
+    }
+
+    .project-card:hover .project-card-img {
+        filter: brightness(1);
+        
+    }
+
+    .project-card-tag{
+        background-color: var(--gray-bg);
+        padding: 4px 8px;
+        border-radius: 0.5rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--accent);
     }
 </style>
