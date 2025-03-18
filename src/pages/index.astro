@@ -7,6 +7,8 @@ import Hero from "../components/Hero.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import Button from "../components/Button.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout title="Milderz - Frontend Developer">
@@ -25,6 +27,7 @@ import Button from "../components/Button.astro";
 		</Container>
 		<Container>
 			<section style={{ display: "flex", paddingBottom: "4rem" }}>
+				{}
 				<ProjectCard />
 				<ProjectCard />
 				<ProjectCard />
@@ -50,11 +53,17 @@ import Button from "../components/Button.astro";
 				</p>
 				<p>
 					Additionally, I am currently in the process of learning the
-					basics of UX/UI design to ckmplement my coding abilities.
+					basics of UX/UI design to complement my coding abilities.
 				</p>
 			</article>
 			
 			<Button btnText="Download resume" />
+		</Container>
+		
+		<Contact />
+		<Container>
+			<Footer />
+
 		</Container>
 
 		<!-- https://res.cloudinary.com/dtu95r8h9/image/upload/e_grayscale/q_auto/milderz-avatar-nobg_p0isgp -->
