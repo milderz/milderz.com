@@ -1,5 +1,5 @@
 ---
-const { cardImage, cardTitle, cardDescription } = Astro.props;
+const { projectImage, projectTitle, cardDescription } = Astro.props;
 ---
 
 <a href="#" class="project-card">
@@ -13,7 +13,7 @@ const { cardImage, cardTitle, cardDescription } = Astro.props;
     />
 
     <div class="project-card-content">
-        <h2 class="project-card-title">Designo Studio project</h2>
+        <h2 class="project-card-title">{projectTitle}</h2>
         <p class="project-card-description">
             The all-in-one subscription starter kit for high-performance SaaS
             applications, powered by Stripe, Supabase, and Vercel.
@@ -43,13 +43,13 @@ const { cardImage, cardTitle, cardDescription } = Astro.props;
         position: relative;
         color: var(--white-text);
         transition: all 0.2s ease;
-        margin-right: 4rem;
+        
         background-color: var(--black-bg);
         
     }
 
     .project-card:hover {
-        transform: scale(1.075);
+        transform: scale(1.050);
         border: 1px solid var(--accent);
     }
 
