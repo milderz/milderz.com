@@ -9,6 +9,7 @@ import ProjectCard from "../components/ProjectCard.astro";
 import Button from "../components/Button.astro";
 import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
+import { projectsItems } from "../projectsData";
 ---
 
 <Layout title="Milderz - Frontend Developer">
@@ -26,14 +27,12 @@ import Footer from "../components/Footer.astro";
 			/>
 		</Container>
 		<Container>
-			<section style={{ display: "flex", paddingBottom: "4rem" }}>
-				{}
-				<ProjectCard />
-				<ProjectCard />
-				<ProjectCard />
-				<!-- <ProjectCard />
-			<ProjectCard />
-			<ProjectCard /> -->
+			<section class="projects">
+				{
+					projectsItems.map((project) => (
+						<ProjectCard projectTitle={project.projectName} />
+					))
+				}
 			</section>
 		</Container>
 		<Container backgroundColor="dark">
@@ -44,26 +43,27 @@ import Footer from "../components/Footer.astro";
 			<article class="about-text">
 				<p>
 					As a frontend developer, I specialize in creating modern
-					websites and apps that assist businesses in gaining an advantage
-					over their competitors by creating fast and reliable websites.
+					websites and apps that assist businesses in gaining an
+					advantage over their competitors by creating fast and
+					reliable websites.
 				</p>
 				<p>
-					My expertise includes working with technologies such as <span>HTML,
-						CSS, Javascript, Astro, Styled Components,</span> and <span>React JS</span>.
+					My expertise includes working with technologies such as <span
+						>HTML, CSS, Javascript, Astro, Styled Components,</span
+					> and <span>React JS</span>.
 				</p>
 				<p>
 					Additionally, I am currently in the process of learning the
 					basics of UX/UI design to complement my coding abilities.
 				</p>
 			</article>
-			
+
 			<Button btnText="Download resume" />
 		</Container>
-		
+
 		<Contact />
 		<Container>
 			<Footer />
-
 		</Container>
 
 		<!-- https://res.cloudinary.com/dtu95r8h9/image/upload/e_grayscale/q_auto/milderz-avatar-nobg_p0isgp -->
@@ -76,10 +76,9 @@ import Footer from "../components/Footer.astro";
 	}
 	.about-text {
 		display: flex;
-		flex-direction: column; 
+		flex-direction: column;
 		gap: 2rem;
 		margin-bottom: 4rem;
-
 
 		span {
 			color: var(--accent);
@@ -88,5 +87,12 @@ import Footer from "../components/Footer.astro";
 		p {
 			max-width: 60ch;
 		}
+	}
+
+	.projects {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(34rem, 1fr));
+		padding-bottom: 4rem;
+		grid-gap: 3rem;
 	}
 </style>
