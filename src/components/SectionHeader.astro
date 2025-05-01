@@ -19,10 +19,21 @@ const { headerTitle, headerSubtitle } = Astro.props;
     color: var(--accent);
     font-size: 1.8rem;
     font-weight: 700;
+    @media screen and (max-width: 484px) {
+          font-size: 1.4rem;
+          
+        
+    }
 }
 .sectionHeaderSubtitle {
     color: var(--white-text);
     font-size: 4.1rem;
     font-weight: 700;
+
+    @media screen and (max-width: 484px) {
+          font-size: 2.8rem;
+          
+        
+    }
 }
 </style>
