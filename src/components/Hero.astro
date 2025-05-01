@@ -24,10 +24,18 @@ import Button from "./Button.astro";
         height: 45.9rem;
         display: flex;
         justify-content: space-between;
-        /* position: relative; */
+        
+        @media screen and (max-width: 920px) {
+            flex-direction: column-reverse;
+            height: 60.9rem;
+            justify-content: center;
+            align-items: center;
+        }
 
         
-    }
+     }
+      
+    
 
     .hero::after {
         content: '';
@@ -47,6 +55,15 @@ import Button from "./Button.astro";
         flex-direction: column;
         justify-content: center;
         gap: 4.2rem;
+        z-index: 3;
+        position: relative;
+        @media screen and (max-width: 920px) {
+          
+            text-align: center;
+            align-items: center;
+            top: -130px;
+            
+        }
     }
 
     .hero-title {
@@ -59,7 +76,12 @@ import Button from "./Button.astro";
         span {
             color: #F5FFCB;
         }
+    
+        @media screen and (max-width: 1024px) {
+            font-size: 6.2rem;
+
         
+     }
     }
 
     .hero-text {
@@ -77,6 +99,13 @@ import Button from "./Button.astro";
         filter: grayscale();
         position: relative;
         z-index: 2;
+        @media screen and (max-width: 920px) {
+            transform: scale(0.65);
+            transform-origin: top;
+            top: 60px;
+            
+        
+     }
         
     }
 
@@ -84,5 +113,7 @@ import Button from "./Button.astro";
 
     .hero-col2 {
         position: relative;
+        display: flex;
+        align-items: flex-start;
     }
 </style>
