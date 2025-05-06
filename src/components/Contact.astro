@@ -1,6 +1,8 @@
 ---
 import Button from "./Button.astro";
-
+import LinkedIn from "../../public/linkedin-round.svg";
+import Github from "../../public/github.svg";
+import Gmail from "../../public/gmail.svg";
 
 ---
 
@@ -8,6 +10,24 @@ import Button from "./Button.astro";
     <h3 id="contact" class="contact-title">CONTACT ME</h3>
     <h4 class="contact-subtitle">Got a project? Send me a message!</h4>
     <Button btnText="Lets talk!"/>
+    <ul class="socials">
+        <li class="social-link">
+        <a href="https://www.linkedin.com/in/milder-navarro-068267216/" target="_blank" rel="noopener noreferrer">
+          <LinkedIn height={30} width={30} />
+        </a>
+        </li>
+        <li class="social-link">
+        <a href="https://github.com/milderz" target="_blank" rel="noopener noreferrer">
+          <Github height={30} width={30} />
+        </a>
+        </li>
+        <li class="social-link">
+        <a href="mailto:mzunax@gmail.com">
+          <Gmail height={30} width={30} />
+        </a>
+        </li>
+      </ul>
+    
 </section>
 <style>
 
@@ -18,7 +38,8 @@ import Button from "./Button.astro";
         flex-direction: column;
         align-items: center;
         gap: 2.4rem;
-        padding: 7.2rem 0;
+        padding: 16rem 0 8rem 0;
+       
     }
     .contact-title {
         font-size: 1.6rem;
@@ -33,5 +54,12 @@ import Button from "./Button.astro";
             width: 14ch;
             text-align: center;
     }
+}
+
+.socials {
+    display: flex;
+    gap: 2.4rem;
+    margin: 2.4rem 0;
+}
     
 </style>
