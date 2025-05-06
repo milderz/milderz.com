@@ -1,8 +1,10 @@
 ---
-const { headerTitle, headerSubtitle } = Astro.props;
+const { headerTitle, headerSubtitle, titleId } = Astro.props;
+
+
 ---
 <header class="section-header">
-<h4 class="sectionHeaderTitle">{headerTitle}</h4>
+<h4 id={titleId} class="sectionHeaderTitle">{headerTitle}</h4>
 <h3 class="sectionHeaderSubtitle">{headerSubtitle}</h3>
 </header>
 
