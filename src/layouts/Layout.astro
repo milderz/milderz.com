@@ -1,6 +1,6 @@
 ---
 interface Props {
-  title: string;
+	title: string;
 }
 
 const { title } = Astro.props;
@@ -8,19 +8,20 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <!-- HTML Meta Tags -->
-    <title>Milderz - Frontend Developer</title>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+			rel="stylesheet"
+		/>
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<title>Milderz - Frontend Developer</title>
     <meta name="description" content="Astro description" />
 
     <meta property="og:url" content="https://www.milderz.com" />
@@ -34,11 +35,7 @@ const { title } = Astro.props;
     <meta property="og:locale" content="en_EN" />
     <meta
       property="og:site_name"
-      content="Milderz - Frontend developer />
-
-
- 
-		
+      content="Milderz - Frontend developer" />
 	</head>
 	<body>
 		<slot />
@@ -68,88 +65,56 @@ const { title } = Astro.props;
 	}
 
 	body {
-		font-family: "
-      Inter",
-      serif;
-      font-optical-sizing:
-      auto;
-      font-weight:
-      300;
-      font-style:
-      normal;
-      color:
-      var(--white-text);
-      background-color:
-      #0E0E0E;
-      }
-      h1,
-      h2,
-      h3,
-      h4,
-      h5
-      {color: var(--white);}
-      li
-      {list-style: none;}
-      a
-      {text-decoration: none;
-		color: #1d1d1d;}
-      p
-      {font-size: 1.8rem;
+		font-family: "Inter", serif;
+		font-optical-sizing: auto;
+		font-weight: 300;
+		font-style: normal;
+		color: var(--white-text);
+		background-color: #0E0E0E;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5 {
+		color: var(--white);
+	}
+
+	li {
+		list-style: none;
+	}
+
+	a {
+		text-decoration: none;
+		color: #1d1d1d;
+	}
+	p {
+		font-size: 1.8rem;
 		font-weight: 400;
-		color: #C2C2C2;}
-      *
-      Estilo
-      general
-      para
-      el
-      scrollbar
-      *
-      ::-webkit-scrollbar
-      {width: 12px; /* Ancho del scrollbar */
-  height: 12px; /* Altura para scrollbars horizontales */}
-      *
-      Color
-      y
-      estilo
-      del
-      track
-      (fondo
-      del
-      scrollbar)
-      *
-      ::-webkit-scrollbar-track
-      {background: var(--black-bg); /* Color del fondo */
-  border-radius: 10px; /* Opcional: bordes  */}
-      *
-      Color
-      y
-      estilo
-      del
-      thumb
-      (la
-      parte
-      deslizante
-      del
-      scrollbar)
-      *
-      ::-webkit-scrollbar-thumb
-      {background: var(--accent); /* Color del thumb */
-  border-radius: 10px; /* Bordes redondeados */}
-      *
-      Cambiar
-      el
-      color
-      del
-      thumb
-      al
-      pasar
-      el
-      mouse
-      *
-      ::-webkit-scrollbar-thumb:hover
-      {background: #000000; /* Color al hacer hover */}
-      <
-      style
-    />
-  </head>
-</html>
+		color: #C2C2C2;
+	}
+
+	/* Estilo general para el scrollbar */
+::-webkit-scrollbar {
+  width: 12px; /* Ancho del scrollbar */
+  height: 12px; /* Altura para scrollbars horizontales */
+}
+
+/* Color y estilo del track (fondo del scrollbar) */
+::-webkit-scrollbar-track {
+  background: var(--black-bg); /* Color del fondo */
+  border-radius: 10px; /* Opcional: bordes  */
+}
+
+/* Color y estilo del thumb (la parte deslizante del scrollbar) */
+::-webkit-scrollbar-thumb {
+  background: var(--accent); /* Color del thumb */
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Cambiar el color del thumb al pasar el mouse */
+::-webkit-scrollbar-thumb:hover {
+  background: #000000; /* Color al hacer hover */
+}
+</style>
