@@ -1,5 +1,6 @@
 ---
 import Menu from "../../public/menu-alt-02-svgrepo-com.svg";
+import CloseIcon from "../../public/close-bold.svg";
 ---
 
 <header class="main-header">
@@ -13,7 +14,28 @@ import Menu from "../../public/menu-alt-02-svgrepo-com.svg";
     </ul>
   </nav>
   <Menu class="menu-icon" height={60} width={60} />
+  <CloseIcon class="close-bold" height={40} width={40} />
 </header>
+
+<script is:inline>
+  const menuIcon = document.querySelector(".menu-icon");
+  const closeIcon = document.querySelector(".close-bold");
+  const nav = document.querySelector("nav");
+  const body = document.querySelector("body");
+
+  menuIcon.addEventListener("click", () => {
+    nav.classList.add("nav-active");
+    closeIcon.classList.add("close-bold-active");
+    menuIcon.classList.add("menu-icon-inactive");
+    body.style.overflow = "hidden";
+  });
+  closeIcon.addEventListener("click", () => {
+    nav.classList.remove("nav-active");
+    closeIcon.classList.remove("close-bold-active");
+    menuIcon.classList.remove("menu-icon-inactive");
+    body.style.overflow = "auto";
+  });
+</script>
 <style>
   .main-header {
     display: flex;
@@ -24,8 +46,7 @@ import Menu from "../../public/menu-alt-02-svgrepo-com.svg";
     position: relative;
 
     @media screen and (max-width: 800px) {
-        position: static
-        
+      position: static;
     }
   }
 
@@ -63,38 +84,40 @@ import Menu from "../../public/menu-alt-02-svgrepo-com.svg";
       }
 
       @media screen and (max-width: 800px) {
-       border-bottom: 1px solid #585858;
-       width: 28.8rem; 
-       padding: 2.8rem 0;
-       display: flex;
-       justify-content: start;
-       align-items: center;
-       border-radius: 0;
-       transition: none;
-       font-weight: 700;
-       font-size: 1.4rem; 
-    }
-     
+        border-bottom: 1px solid #585858;
+        width: 28.8rem;
+        padding: 2.8rem 0;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        border-radius: 0;
+        transition: none;
+        font-weight: 700;
+        font-size: 1.4rem;
+      }
     }
 
     @media screen and (max-width: 800px) {
-        flex-direction: column ;
-        align-items: center;
-        gap: 0;
-        
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
     }
   }
 
   nav {
     @media screen and (max-width: 800px) {
       /* display: none; */
+      visibility: hidden;
+      opacity: 0;
+      transition: all ease 0.3s;
       position: absolute;
       top: 7.5rem;
       left: 0;
       width: 100%;
       height: 100vh;
-      background-color: var(--black-bg);
+      background-color: #0e0e0e;
       z-index: 4;
+      padding: 2.4rem 0;
     }
   }
 
@@ -105,5 +128,21 @@ import Menu from "../../public/menu-alt-02-svgrepo-com.svg";
       cursor: pointer;
       z-index: 3;
     }
+  }
+  .menu-icon-inactive {
+    display: none;
+  }
+  .close-bold {
+    display: none;
+    z-index: 3;
+  }
+
+  .close-bold-active {
+    display: block;
+  }
+  .nav-active {
+    visibility: visible;
+    opacity: 1;
+    
   }
 </style>
