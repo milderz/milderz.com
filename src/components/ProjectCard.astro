@@ -34,7 +34,7 @@ const { projectImage, projectTitle, cardDescription } = Astro.props;
 <style>
     .project-card {
         height: 43.3rem;
-        width: 34.5rem;
+        /* width: 34.5rem; */
         border: 1px solid #666666;
         padding: 2rem;
         border-radius: 0.5rem;
@@ -58,6 +58,11 @@ const { projectImage, projectTitle, cardDescription } = Astro.props;
         flex: 1;
         filter: brightness(0.6);
         transition: all 0.2s ease;
+        width: 100%;
+        background-position: center;
+        background-size: cover;
+        object-fit: cover;
+        object-position: center;
     }
 
     .project-card-content {

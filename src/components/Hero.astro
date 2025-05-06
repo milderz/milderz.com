@@ -21,6 +21,7 @@ import Button from "./Button.astro";
 </div>
 <style>
 	.hero {
+        display: none;
         height: 45.9rem;
         display: flex;
         justify-content: space-between;
@@ -38,6 +39,7 @@ import Button from "./Button.astro";
     
 
     .hero::after {
+        display: none;
         content: '';
         background-image: url('/Grid\ layers\ -\ v3.png');
         width: 100%;
@@ -61,7 +63,7 @@ import Button from "./Button.astro";
           
             text-align: center;
             align-items: center;
-            top: -130px;
+            top: -70px;
             
         }
     }
@@ -82,6 +84,12 @@ import Button from "./Button.astro";
 
         
      }
+
+     @media screen and (max-width: 460px) {
+            font-size: 4.6rem;
+            
+        
+     }
     }
 
     .hero-text {
@@ -93,16 +101,23 @@ import Button from "./Button.astro";
     .hero-col1-btns {
         display: flex;
         gap: 1.6rem;
+        
     }
 
     .hero-avatar {
         filter: grayscale();
         position: relative;
         z-index: 2;
+        
+        
         @media screen and (max-width: 920px) {
-            transform: scale(0.65);
-            transform-origin: top;
-            top: 60px;
+            
+            height: 300px;
+        
+     }
+     @media screen and (max-width: 460px) {
+           
+            
             
         
      }
