@@ -24,8 +24,16 @@ const { headerTitle, headerSubtitle, titleId } = Astro.props;
 
 .sectionHeaderTitle {
     color: var(--accent);
-    font-size: 1.8rem;
+    font-size: 1.1rem;
     font-weight: 700;
+    /* width: 17rem; */
+    padding: 0.2rem 0.8rem;
+    width: max-content ;
+    border-radius: 4px;
+    background-color: var(--accent-opacity);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     @media screen and (max-width: 484px) {
           font-size: 1.4rem;
           
