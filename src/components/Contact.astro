@@ -3,67 +3,127 @@ import Button from "./Button.astro";
 import LinkedIn from "../../public/linkedin-round.svg";
 import Github from "../../public/github.svg";
 import Gmail from "../../public/gmail.svg";
+import Copy from "../../public/copy-svg.svg";
+
 
 ---
 
 <section class="contact">
-    <h3 id="contact" class="contact-title">CONTACT ME</h3>
-    <h4 class="contact-subtitle">Got a project? Send me a message!</h4>
-    <Button btnText="Lets talk!"/>
-    <ul class="socials">
-        <li class="social-link">
-        <a href="https://www.linkedin.com/in/milder-navarro-068267216/" target="_blank" rel="noopener noreferrer">
-          <LinkedIn height={30} width={30} />
-        </a>
-        </li>
-        <li class="social-link">
-        <a href="https://github.com/milderz" target="_blank" rel="noopener noreferrer">
-          <Github height={30} width={30} />
-        </a>
-        </li>
-        <li class="social-link">
-        <a href="mailto:mzunax@gmail.com">
-          <Gmail height={30} width={30} />
-        </a>
-        </li>
-      </ul>
-    
+  <h3 id="contact" class="contact-title">CONTACT ME</h3>
+  <h4 class="contact-subtitle">Got a project? <br />Send me a message!</h4>
+  <div class="contact-email">
+    <p>mzunax@gmail.com</p>
+    <button id="copy-email-btn" class="copy-email"><Copy height={30} width={30}/></button>
+  </div>
+  <!-- <Button btnText="Lets talk!" /> -->
+    <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      const btn = document.getElementById("copy-email-btn");
+      btn?.addEventListener("click", () => {
+        navigator.clipboard.writeText("mzunax@gmail.com");
+      });
+    });
+  </script>
+  <ul class="socials">
+    <li class="social-link">
+      <a
+        href="https://www.linkedin.com/in/milder-navarro-068267216/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <LinkedIn height={30} width={30} />
+      </a>
+    </li>
+    <li class="social-link">
+      <a
+        href="https://github.com/milderz"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Github height={30} width={30} />
+      </a>
+    </li>
+    <li class="social-link">
+      <a href="mailto:mzunax@gmail.com">
+        <Gmail height={30} width={30} />
+      </a>
+    </li>
+  </ul>
 </section>
 <style>
+  .contact {
+    clip-path: polygon(0% 18%, 100% 0%, 100% 100%, 0% 100%);
+    background-color: #1d1d1d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.4rem;
+    padding: 12rem 0 8rem 0;
+    @media screen and (max-width: 460px) {
+      clip-path: polygon(0% 8%, 100% 0%, 100% 100%, 0% 100%);
+    }
+  }
+  .contact-title {
+    font-size: 1.6rem;
+    color: var(--accent);
+  }
+  .contact-subtitle {
+    font-size: 3.6rem;
+    text-align: center;
+    @media screen and (max-width: 800px) {
+      font-size: 2.4rem;
+    }
+    @media screen and (max-width: 460px) {
+      width: 14ch;
+      text-align: center;
+    }
+  }
 
-    .contact {
-        clip-path: polygon(0% 18%, 100% 0%, 100% 100%, 0% 100%);
-        background-color: #1D1D1D;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2.4rem;
-        padding: 12rem 0 8rem 0;
-        @media screen and (max-width: 460px) {
-            
-            clip-path: polygon(0% 8%, 100% 0%, 100% 100%, 0% 100%);
-        }
-       
-    }
-    .contact-title {
-        font-size: 1.6rem;
-        color: var(--accent);
-    }
-    .contact-subtitle {
-        font-size: 3.6rem;
-        @media screen and (max-width: 800px) {
-            font-size: 2.4rem;
-        }
-        @media screen and (max-width: 460px) {
-            width: 14ch;
-            text-align: center;
-    }
-}
-
-.socials {
+  .socials {
     display: flex;
     gap: 2.4rem;
     margin: 2.4rem 0;
+  }
+
+  .social-link a svg {
+    transition: transform 0.2s ease;
+  }
+  .social-link a svg:hover {
+    transform: scale(1.6);
+  }
+  .contact-email {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+  }
+.copy-email {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 1rem;
+    position: relative;
 }
-    
+.copy-email::after {
+    content: "COPY EMAIL";
+    position: absolute;
+    left: 8rem;
+    top: 10%;
+    transform: translateX(-50%);
+    background: #000;
+    color: #fff;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+    z-index: 10;
+}
+.copy-email:hover::after,
+.copy-email:focus::after {
+    opacity: 1;
+}
 </style>
