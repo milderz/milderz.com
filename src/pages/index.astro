@@ -10,88 +10,123 @@ import Button from "../components/Button.astro";
 import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
 import { projectsItems } from "../projectsData";
+import ArrowLeft from "../../public/arrow-left.svg";
 ---
 
 <Layout title="Milderz - Frontend Developer">
-	<main>
-		<Container backgroundColor="dark">
-			<Header />
-		</Container>
-		<Container backgroundColor="dark">
-			<Hero />
-		</Container>
-		<Container>
-			<SectionHeader
-				headerTitle="PROJECTS"
-				headerSubtitle="Take a look at my work!"
-				titleId="projects"
-			/>
-		</Container>
-		<Container>
-			<section class="projects">
-				{
-					projectsItems.map((project) => (
-						<ProjectCard projectTitle={project.projectName} />
-					))
-				}
-			</section>
-		</Container>
-		<Container backgroundColor="dark">
-			<SectionHeader
-				headerTitle="ABOUT ME"
-				headerSubtitle="Get to know more about me"
-				titleId="about"
-			/>
-			<article class="about-text">
-				<p>
-					I'm passionate about building modern, user-friendly websites and technolgy products.
-				</p>
-				<p>
-					I like working with technologies like <span
-						>HTML, CSS, Javascript, Astro, Tailwind</span
-					> and <span>React JS</span>.
-				</p>
-				<p>
-					I am currently learning backend development with <span
-						>Node.js, Express,</span
-					> and <span>SQL</span>, and I am excited to
-					expand my skill set to become a full-stack developer.
-				</p>
-			</article>
+  <main>
+    <Container backgroundColor="dark">
+      <Header />
+    </Container>
+    <Container backgroundColor="dark">
+      <Hero />
+    </Container>
+    <Container>
+      <SectionHeader
+        headerTitle="PROJECTS"
+        headerSubtitle="Take a look at my work!"
+        titleId="projects"
+      />
+    </Container>
+    <Container>
+      <section class="projects">
+        {
+          projectsItems.map((project) => (
+            <ProjectCard projectTitle={project.projectName} />
+          ))
+        }
+      </section>
+      <a href="/projects" class="link"
+        ><p>VIEW ALL</p><ArrowLeft height={16} width={16} /></a
+      >
+    </Container>
+    <Container backgroundColor="dark">
+      <SectionHeader
+        headerTitle="ABOUT ME"
+        headerSubtitle="Get to know more about me"
+        titleId="about"
+      />
+      <article class="about-text">
+        <p>
+          I'm passionate about building modern, user-friendly websites and
+          technolgy products.
+        </p>
+        <p>
+          I like working with technologies like <span
+            >HTML, CSS, Javascript, Astro, Tailwind</span
+          > and <span>React JS</span>.
+        </p>
+        <p>
+          I am currently learning backend development with <span
+            >Node.js, Express,</span
+          > and <span>SQL</span>, and I am excited to expand my skill set to
+          become a full-stack developer.
+        </p>
+      </article>
+    </Container>
 
-			
-		</Container>
+    <Contact />
 
-		<Contact />
-	
-
-		<!-- https://res.cloudinary.com/dtu95r8h9/image/upload/e_grayscale/q_auto/milderz-avatar-nobg_p0isgp -->
-	</main>
+    <!-- https://res.cloudinary.com/dtu95r8h9/image/upload/e_grayscale/q_auto/milderz-avatar-nobg_p0isgp -->
+  </main>
 </Layout>
 
 <style>
-	main {
-		margin: auto;
-	}
-	.about-text {
-		display: flex;
-		flex-direction: column;
-		gap: 2rem;
-		margin-bottom: 4rem;
+  main {
+    margin: auto;
+  }
+  .about-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 4rem;
 
-		span {
-			color: var(--accent);
-			font-weight: 700;
-		}
-		p {
-			max-width: 60ch;
-		}
-	}
+    span {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    p {
+      max-width: 60ch;
+    }
+  }
 
-	.projects {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
-		padding-bottom: 4rem;
-		grid-gap: 3rem;
-	}
+  .projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    padding-bottom: 4rem;
+    grid-gap: 3rem;
+  }
+
+  .link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3.6rem 0;
+    width: max-content;
+    margin: 0 auto;
+  }
+
+  .link:hover svg {
+    transform: rotate(180deg) translateX(-0.5rem);
+    filter: brightness(1);
+  }
+  .link:hover p {
+	color: var(--white-text);
+  }
+
+  .link p {
+    display: inline-block;
+    color: var(--gray-text);
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .link svg {
+    transition: all 0.2s ease;
+    margin-left: 0.5rem;
+    transform: rotate(180deg) scale(0.8);
+    filter: brightness(0.4);
+  }
 </style>
