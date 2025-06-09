@@ -4,6 +4,7 @@ interface Props {
 }
 
 const { title } = Astro.props;
+import '@fontsource-variable/inter';
 ---
 
 <!doctype html>
@@ -54,6 +55,7 @@ const { title } = Astro.props;
 		--white: #ffffff;
 		--accent: #d6fb41;
 		--white-text: #f0f0f0;
+		--gray-text:rgb(163 163 163);
 		--black-text: #1d1d1d;
 		--accent-opacity: hsl(72, 72%, 56%, 28%);
 		--accent-hover: #f5ffcb;
@@ -62,10 +64,11 @@ const { title } = Astro.props;
 	}
 	html {
 		font-size: 62.5%;
+		scroll-behavior: smooth;
 	}
 
 	body {
-		font-family: "Inter", serif;
+		font-family: 'Inter Variable', sans-serif;
 		font-optical-sizing: auto;
 		font-weight: 300;
 		font-style: normal;
