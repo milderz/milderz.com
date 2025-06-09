@@ -1,0 +1,138 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Container from "../components/Container.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+const blogPosts = [
+	{
+		title: "Getting Started with Astro",
+		slug: "getting-started-with-astro",
+		date: "2024-06-01",
+		excerpt: "Learn how to set up your first Astro project and understand the basics.",
+	},
+	{
+		title: "Deploying Astro Sites to Vercel",
+		slug: "deploying-astro-to-vercel",
+		date: "2024-06-03",
+		excerpt: "A step-by-step guide to deploying your Astro site on Vercel.",
+	},
+	{
+		title: "Markdown in Astro: Tips & Tricks",
+		slug: "markdown-in-astro-tips",
+		date: "2024-06-05",
+		excerpt: "Enhance your Astro blog with powerful Markdown features.",
+	},
+	{
+		title: "Using Components in Astro",
+		slug: "using-components-in-astro",
+		date: "2024-06-07",
+		excerpt: "Discover how to create and use components in your Astro projects.",
+	},
+	{
+		title: "Styling Astro Projects with Tailwind CSS",
+		slug: "styling-astro-with-tailwind",
+		date: "2024-06-09",
+		excerpt: "Integrate Tailwind CSS for rapid styling in Astro.",
+	},
+	{
+		title: "Fetching Data in Astro",
+		slug: "fetching-data-in-astro",
+		date: "2024-06-11",
+		excerpt: "Learn how to fetch and display data in your Astro site.",
+	},
+	{
+		title: "SEO Best Practices for Astro",
+		slug: "seo-best-practices-astro",
+		date: "2024-06-13",
+		excerpt: "Optimize your Astro site for search engines with these tips.",
+	},
+	{
+		title: "Migrating from Next.js to Astro",
+		slug: "migrating-from-nextjs-to-astro",
+		date: "2024-06-15",
+		excerpt: "A practical guide to moving your site from Next.js to Astro.",
+	},
+	{
+		title: "Image Optimization in Astro",
+		slug: "image-optimization-in-astro",
+		date: "2024-06-17",
+		excerpt: "Improve performance by optimizing images in Astro.",
+	},
+	{
+		title: "Creating a Blog with Astro",
+		slug: "creating-a-blog-with-astro",
+		date: "2024-06-19",
+		excerpt: "Build a modern, fast blog using Astro from scratch.",
+	},
+];
+---
+
+<Layout title="Milderz - Blog">
+	<main>
+		<Container backgroundColor="dark">
+			<Header />
+		</Container>
+		
+		<Container backgroundColor="dark">
+			<SectionHeader
+				headerTitle="/BLOG"
+				headerSubtitle="Latest articles and tutorials"
+				titleId="projects"
+			/>
+		</Container>
+		<Container>
+			<section class="blog-posts">
+				{blogPosts.map((post) => (
+					<article class="blog-post" key={post.slug}>
+						<h2 class="blog-post-title">{post.title}</h2>
+						<p class="blog-post-date">{new Date(post.date).toLocaleDateString()}</p>
+						<p class="blog-post-excerpt">{post.excerpt}</p>
+						<a href={`/blog/${post.slug}`} class="blog-post-link">Read more</a>
+					</article>
+				))}
+			</section>
+			
+		</Container>
+	</main>
+</Layout>
+<style>
+				.blog-posts {
+					display: grid;
+					grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+					gap: 2rem;
+					padding: 7.2rem 0;
+				}
+				.blog-post {
+					background-color: var(--black-bg);
+					padding: 2rem;
+					border-radius: 0.5rem;
+					border: 1px solid transparent;
+					color: var(--white-text);
+					display: flex;
+					flex-direction: column;
+					gap: 1.2rem;
+					transition: all 0.2s ease;
+				}
+
+				.blog-post:hover {
+					border: 1px solid var(--accent);
+					transform: translateY(-0.5rem);
+				}
+				.blog-post-title {
+					font-size: 1.5rem;
+					margin-bottom: 0.5rem;
+				}
+				.blog-post-date {
+					font-size: 0.875rem;
+					color: #888;
+					margin-bottom: 0.5rem;
+				}
+				.blog-post-excerpt {
+					font-size: 1rem;
+					margin-bottom: 1rem;
+				}
+				.blog-post-link {
+					color: var(--accent);
+					text-decoration: none;
+				}
+			</style>
