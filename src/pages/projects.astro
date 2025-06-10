@@ -1,8 +1,13 @@
 ---
+
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Container from "../components/Container.astro";
 import SectionHeader from "../components/SectionHeader.astro";
+
+const response = await fetch("https://api.github.com/users/milderz/repos?sort=updated");
+const data = await response.json();
+const filteredData = data.filter(repo => repo.description !== null);
 ---
 
 <Layout title="Milderz - Projects">
@@ -17,7 +22,54 @@ import SectionHeader from "../components/SectionHeader.astro";
 				headerSubtitle="My work and contributions"
 				titleId="projects"
 			/>
+			<ul>
+				{filteredData.map(repo => (
+					<li>
+						<a href={repo.html_url} target="_blank" rel="noopener noreferrer">
+							{repo.name}
+						</a>
+						<p>{repo.description}</p>
+					</li>
+				))}
+			</ul>
 		</Container>
 		
 	</main>
 </Layout>
+<style>
+	ul {
+		
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+
+	}
+
+	li {
+		margin: 2rem 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		padding: 2rem 1rem;
+		background-color: var(--gray-bg);
+		transition: all 0.2s ease;
+		border-radius: 0.5rem;
+		border: 1px solid transparent;
+
+	}
+
+	li:hover {
+		transform : translateY(-0.2rem);
+		border: 1px solid var(--accent);
+		
+	}
+
+	a {
+		color: var(--gray-text);
+		text-decoration: none;
+		font-weight: bold;
+	}
+
+	a:hover {
+		text-decoration: underline;
+	}
