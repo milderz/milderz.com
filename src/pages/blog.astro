@@ -3,6 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Container from "../components/Container.astro";
 import SectionHeader from "../components/SectionHeader.astro";
+
+
 const blogPosts = [
 	{
 		title: "Getting Started with Astro",
@@ -65,6 +67,8 @@ const blogPosts = [
 		excerpt: "Build a modern, fast blog using Astro from scratch.",
 	},
 ];
+
+
 ---
 
 <Layout title="Milderz - Blog">
@@ -75,7 +79,7 @@ const blogPosts = [
 		
 		<Container backgroundColor="dark">
 			<SectionHeader
-				headerTitle="/BLOG"
+				headerTitle="BLOG"
 				headerSubtitle="Latest articles and tutorials"
 				titleId="projects"
 			/>
@@ -83,7 +87,7 @@ const blogPosts = [
 		<Container>
 			<section class="blog-posts">
 				{blogPosts.map((post) => (
-					<article class="blog-post" key={post.slug}>
+					<article class="blog-post">
 						<h2 class="blog-post-title">{post.title}</h2>
 						<p class="blog-post-date">{new Date(post.date).toLocaleDateString()}</p>
 						<p class="blog-post-excerpt">{post.excerpt}</p>
